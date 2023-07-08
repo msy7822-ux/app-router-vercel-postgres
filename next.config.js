@@ -15,6 +15,7 @@ const nextConfig = {
     register: true,
     skipWaiting: false,
     runtimeCaching,
+    buildExcludes: [/middleware-manifest.json$/],
   }),
 };
 
