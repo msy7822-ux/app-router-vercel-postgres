@@ -1,13 +1,10 @@
-export default function Home() {
+import { getSession } from "@/lib/next-auth/server";
+
+export default async function Home() {
+  console.log("Home", await getSession());
   return (
-    <main
-      className="
-        flex min-h-screen flex-col
-        items-center justify-between
-        p-24
-      "
-    >
-      <></>
+    <main className="">
+      <div>main page</div>
     </main>
   );
 }
