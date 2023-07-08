@@ -4,9 +4,9 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "TsunDoc",
-  "short_name": "TsunDoc",
-  "description": "後で読みたい記事を積読できるサービス",
+  "name": "Vercel Postgres",
+  "short_name": "Vercel Postgres",
+  "description": "Try Vercel Postgres in your Next.js app with Prisma",
   "icons": [
     {
       "src": "/icons/app-icon.png",

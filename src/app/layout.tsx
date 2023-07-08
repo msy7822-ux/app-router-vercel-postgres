@@ -3,8 +3,8 @@ import { Header } from "./_share/components/common/header/header";
 import "./globals.css";
 
 export const metadata = {
-  title: "PostgreTh",
-  description: "Vercel Postgres with Next.js App router",
+  title: "Vercel Postgres",
+  description: "Try Vercel Postgres in your Next.js app with Prisma",
 };
 
 // NOTE: 全ての画面の共通の画面幅スタイル
@@ -17,6 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+      </head>
       <body className="font-mono">
         <NextAuthProvider>
           <Header></Header>
