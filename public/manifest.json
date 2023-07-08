@@ -1,6 +1,6 @@
 {
-  "theme_color": "#fff",
-  "background_color": "#fff",
+  "theme_color": "#000",
+  "background_color": "#000",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
@@ -9,24 +9,24 @@
   "description": "Try Vercel Postgres in your Next.js app with Prisma",
   "icons": [
     {
-      "src": "/icons/app-icon.png",
+      "src": "/vercel.svg",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/svg"
     },
     {
-      "src": "/icons/app-icon.png",
+      "src": "/vercel.svg",
       "sizes": "256x256",
-      "type": "image/png"
+      "type": "image/svg"
     },
     {
-      "src": "/icons/app-icon.png",
+      "src": "/vercel.svg",
       "sizes": "384x384",
-      "type": "image/png"
+      "type": "image/svg"
     },
     {
-      "src": "/icons/app-icon.png",
+      "src": "/vercel.svg",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/svg"
     }
   ]
 }
