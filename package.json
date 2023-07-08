@@ -6,7 +6,7 @@
     "dev": "next dev",
     "next:build": "next build",
     "build:dev": "run-s lint next:build",
-    "build": "run-s prisma:* build:dev",
+    "build": "run-s prisma:generate prisma:push build:dev",
     "start": "next start",
     "lint": "next lint",
     "prisma:init": "npx prisma init",
