@@ -1,5 +1,5 @@
 import NextAuthProvider from "@/providers/next-auth";
-import { Header } from "./_share/components/common/header";
+import { Header } from "./_share/components/common/header/header";
 import "./globals.css";
 
 export const metadata = {
@@ -17,15 +17,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className="font-mono">
         <NextAuthProvider>
-          <div className="border-b border-accent-1">
-            <div className={baseScreenWidthStyle}>
-              <Header></Header>
-            </div>
-          </div>
+          <Header></Header>
           <div className={baseScreenWidthStyle}>
-            <div className="px-6 2lg:px-0">{children}</div>
+            <div className="p-6 2lg:px-0">{children}</div>
           </div>
         </NextAuthProvider>
       </body>

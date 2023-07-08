@@ -1,5 +1,7 @@
 import { NextAuthOptions } from "next-auth";
 import GithubProvider from "next-auth/providers/github";
+import { upsertUserForSignup } from "../prisma";
+
 export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
@@ -9,7 +11,12 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async signIn({ user, account, profile, email, credentials }) {
+    async signIn({ user, account, profile, credentials }) {
+      if (user) {
+        const res = await upsertUserForSignup(user.email, user.name);
+        console.log(res);
+      }
+
       return true;
     },
     async redirect({ url, baseUrl }) {
