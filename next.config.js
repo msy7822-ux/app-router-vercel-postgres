@@ -13,7 +13,7 @@ const nextConfig = {
   images: {
     domains: ["images.unsplash.com", "avatars.githubusercontent.com"],
   },
-  ...withPWA,
+  ...withPWA({}),
 };
 
 module.exports = nextConfig;
