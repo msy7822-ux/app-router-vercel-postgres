@@ -1,13 +1,6 @@
 /** @type {import('next').NextConfig} */
 const runtimeCaching = require("next-pwa/cache");
-
-const withPWA = require("next-pwa")({
-  disable: process.env.NODE_ENV === "development",
-  dest: "public",
-  register: true,
-  skipWaiting: false,
-  runtimeCaching,
-});
+const withPWA = require("next-pwa");
 
 const nextConfig = {
   experimental: {
@@ -17,7 +10,12 @@ const nextConfig = {
   images: {
     domains: ["images.unsplash.com", "avatars.githubusercontent.com"],
   },
-  ...withPWA({}),
+  ...withPWA({
+    dest: "public",
+    register: true,
+    skipWaiting: false,
+    runtimeCaching,
+  }),
 };
 
 module.exports = nextConfig;
