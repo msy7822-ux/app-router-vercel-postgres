@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "build:dev": "run-s lint build",
-    "build:production": "run-s prisma:generate prisma:push build:dev",
+    "next:build": "next build",
+    "build:dev": "run-s lint next:build",
+    "build": "run-s prisma:generate prisma:push build:dev",
     "start": "next start",
     "lint": "next lint",
     "prisma:init": "npx prisma init",
