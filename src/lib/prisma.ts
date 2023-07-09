@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import { cache } from "react";
 
 export const prisma = new PrismaClient();
 
@@ -15,10 +16,10 @@ export const upsertUserForSignup = async (
   return res;
 };
 
-export const getUserByEmail = async (email: string) => {
+export const getUserByEmail = cache(async (email: string) => {
   const res = await prisma.user.findUnique({
     where: { email },
   });
 
   return res;
-};
+});

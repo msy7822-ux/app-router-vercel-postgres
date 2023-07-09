@@ -11,10 +11,11 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async signIn({ user, account, profile, credentials }) {
-      if (user) {
-        const res = await upsertUserForSignup(user.email, user.name);
-        console.log(res);
+    async signIn({ user, account }) {
+      if (user && account) {
+        const createdUser = await upsertUserForSignup(user.email, user.name);
+        user.id = createdUser.id;
+        account.userId = createdUser.id;
       }
 
       return true;
@@ -25,16 +26,22 @@ export const authOptions: NextAuthOptions = {
       return baseUrl;
     },
     async session({ session, user }) {
-      session.user = user;
-      return session;
+      if (user) {
+        session.user = user;
+      }
+
+      return Promise.resolve(session);
     },
     async jwt({ token, account }) {
       if (account) {
         token.accessToken = account.access_token;
-        token.accoutnt = account;
+        token.account = account;
       }
 
       return token;
     },
+  },
+  session: {
+    strategy: "jwt",
   },
 };

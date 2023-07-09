@@ -13,28 +13,35 @@ export function ReviewForm() {
   const [comment, setComment] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    // await createReview(user.id, );
+    // await createReview(rating, comment, user.id);
   };
+
+  if (!user) return null;
 
   return (
     <form
       className="
         w-full rounded-md border
-        border-accent-0 p-4 shadow  md:p-6
+        border-accent-0 p-4 shadow md:p-6
       "
       onSubmit={handleSubmit}
     >
-      <h2>レビューする</h2>
+      <h2>【本日の発表の感想をください】</h2>
       <div>
-        <ReviewStars></ReviewStars>
+        <ReviewStars rating={rating} setRating={setRating}></ReviewStars>
       </div>
       <div className="w-full">
-        <ReviewTextarea></ReviewTextarea>
+        <ReviewTextarea
+          content={comment}
+          setContent={setComment}
+        ></ReviewTextarea>
       </div>
 
-      <button type="submit" className="rounded-md border px-3 py-2">
-        送信する
-      </button>
+      <div className="flex w-full justify-end">
+        <button type="submit" className="rounded-md border px-3 py-2">
+          送信する
+        </button>
+      </div>
     </form>
   );
 }
