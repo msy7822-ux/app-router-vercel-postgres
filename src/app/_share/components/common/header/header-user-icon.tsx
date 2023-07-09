@@ -13,18 +13,21 @@ type AuthUserType = {
 export async function HeaderUserIcon() {
   const data = await getServerSession();
   const user = data?.user ?? null;
+  console.log("user", data);
   const userInfo = user && user.email ? await getUserByEmail(user.email) : null;
 
   const linkPath = !!userInfo ? `/users/${userInfo.id}` : "/users/login";
 
   return (
-    <Link href={linkPath}>
-      {!!user ? (
-        <AuthenticatedUserIcon user={user}></AuthenticatedUserIcon>
-      ) : (
-        <NonAuthenticatedUserIcon></NonAuthenticatedUserIcon>
-      )}
-    </Link>
+    <>
+      <Link href={linkPath}>
+        {!!user ? (
+          <AuthenticatedUserIcon user={user}></AuthenticatedUserIcon>
+        ) : (
+          <NonAuthenticatedUserIcon></NonAuthenticatedUserIcon>
+        )}
+      </Link>
+    </>
   );
 }
 

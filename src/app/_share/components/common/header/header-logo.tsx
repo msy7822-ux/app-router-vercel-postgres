@@ -7,7 +7,7 @@ export function HeaderLogo() {
       <div className="flex gap-2">
         <IoLogoVercel size={25}></IoLogoVercel>
         <span className="text-lg text-accent-2">/</span>
-        <span>Vercel Postgres</span>
+        <span>PWA Night vol.53</span>
       </div>
     </Link>
   );

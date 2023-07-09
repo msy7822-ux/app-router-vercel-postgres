@@ -13,6 +13,9 @@ dependencies:
   '@types/react-dom':
     specifier: 18.2.6
     version: 18.2.6
+  '@types/react-stars':
+    specifier: ^2.2.1
+    version: 2.2.1
   '@vercel/postgres':
     specifier: ^0.4.0
     version: 0.4.0
@@ -46,6 +49,9 @@ dependencies:
   react-icons:
     specifier: ^4.10.1
     version: 4.10.1(react@18.2.0)
+  react-stars:
+    specifier: ^2.2.5
+    version: 2.2.5
   tailwind-merge:
     specifier: ^1.13.2
     version: 1.13.2
@@ -1688,6 +1694,12 @@ packages:
 
   /@types/react-dom@18.2.6:
     resolution: {integrity: sha512-2et4PDvg6PVCyS7fuTc4gPoksV58bW0RwSxWKcPRcHZf0PRUGq03TKcD/rUHe3azfV6/5/biUBJw+HhCQjaP0A==}
+    dependencies:
+      '@types/react': 18.2.14
+    dev: false
+
+  /@types/react-stars@2.2.1:
+    resolution: {integrity: sha512-x0Z7+OsImFfBbHpLm/o3Z/q9qbapQbaSbKkozSIJXs6OAkFW5keA4Qw4MOjocdmhPPUYI6DDVSB0NOm0QmY+Xg==}
     dependencies:
       '@types/react': 18.2.14
     dev: false
@@ -4491,6 +4503,10 @@ packages:
 
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+    dev: false
+
+  /react-stars@2.2.5:
+    resolution: {integrity: sha512-O//KS6Z9RZnUOU/r+3+wxCzNalVn/wEWIcbAQFRV3dw8WbV+ys/kgcpBPijqTiNpHGrcwZdtb/7wF/UVem20CQ==}
     dev: false
 
   /react@18.2.0:
