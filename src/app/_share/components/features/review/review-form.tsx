@@ -1,19 +1,35 @@
 "use client";
 
+import { createReview } from "@/actions/reviews";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { experimental_useFormStatus as useFormStatus } from "react-dom";
 import { ReviewStars } from "./review-starts";
 import { ReviewTextarea } from "./review-textarea";
 
 export function ReviewForm() {
   const { data: session } = useSession();
   const { user } = session || {};
+  const router = useRouter();
+
+  // NOTE: useFormStatus動かない...
+  const { pending: _isPending } = useFormStatus();
 
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    // await createReview(rating, comment, user.id);
+    e.preventDefault();
+    setIsLoading(true);
+
+    await createReview(rating, comment, user?.email ?? "");
+
+    setIsLoading(false);
+    setRating(0);
+    setComment("");
+    router.push("/");
   };
 
   if (!user) return null;
@@ -38,8 +54,13 @@ export function ReviewForm() {
       </div>
 
       <div className="flex w-full justify-end">
-        <button type="submit" className="rounded-md border px-3 py-2">
-          送信する
+        <button
+          type="submit"
+          disabled={isLoading}
+          className="rounded-md border px-3 py-2"
+        >
+          {!isLoading && "送信する"}
+          {isLoading && "送信中..."}
         </button>
       </div>
     </form>

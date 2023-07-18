@@ -1,19 +1,29 @@
 "use server";
 
-import { prisma } from "@/lib/prisma";
+import { getUserByEmail, prisma } from "@/lib/prisma";
+import { revalidatePath } from "next/cache";
 
 export const createReview = async (
   starsCount: number,
   reviewContent: string,
-  userId: string
+  email: string
 ) => {
-  const res = await prisma.review.create({
-    data: {
-      userId,
-      stars: starsCount,
-      review: reviewContent,
-    },
-  });
+  try {
+    const user = await getUserByEmail(email);
+    if (!user) return null;
 
-  return res;
+    const res = await prisma.review.create({
+      data: {
+        userId: user.id,
+        stars: starsCount,
+        review: reviewContent,
+      },
+    });
+
+    revalidatePath("/");
+
+    return res;
+  } catch (error) {
+    console.log("error =", error);
+  }
 };
