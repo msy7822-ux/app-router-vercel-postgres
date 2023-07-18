@@ -15,7 +15,11 @@ export function LoginComponent() {
   };
 
   return (
-    <button type="button" onClick={handleLogin}>
+    <button
+      type="button"
+      className="rounded-md border px-4 py-3"
+      onClick={handleLogin}
+    >
       <>ログイン</>
     </button>
   );
